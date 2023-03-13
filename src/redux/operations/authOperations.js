@@ -1,4 +1,4 @@
-import * as Api from '../../srevices/phoneBookAPI';
+import * as Api from '../../services/phoneBookAPI';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 export const signUp = createAsyncThunk(
@@ -37,7 +37,7 @@ export const logout = createAsyncThunk(
 	}
 );
 
-export const getCurrent = Api.createAsyncThunk(
+export const getCurrent = createAsyncThunk(
 	'auth/delete',
 	async (token, { rejectWithValue }) => {
 		try {

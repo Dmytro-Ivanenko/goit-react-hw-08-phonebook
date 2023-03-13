@@ -1,7 +1,8 @@
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { logout } from '../../../redux/operations/authOperations';
 
-// import { getUser } from '../../../redux/auth/auth-selectors';
+import { getUser } from '../../../redux/selectors';
 
 // import styles from './navbar-user.module.scss';
 
