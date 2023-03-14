@@ -1,16 +1,16 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import Section from '../components/Section/Section';
-import ContactForm from '../components/ContactForm/ContactForm';
-import ContactList from '../components/ContactList/ContactList';
-import Filter from '../components/Filter/Filter';
-import Notification from '../components/Notification/Notification';
+import Section from '../../components/Section/Section';
+import ContactForm from '../../components/ContactForm/ContactForm';
+import ContactList from '../../components/ContactList/ContactList';
+import Filter from '../../components/Filter/Filter';
+import Notification from '../../components/Notification/Notification';
 
-import { fetchContacts } from '../redux/operations/contactsOperations';
-import { getContacts } from '../redux/selectors';
+import { fetchContacts } from '../../redux/operations/contactsOperations';
+import { getContacts } from '../../redux/selectors';
 
-const pageContacts = () => {
+const ContactsPage = () => {
 	const dispatch = useDispatch();
 
 	useEffect(() => {
@@ -39,4 +39,4 @@ const pageContacts = () => {
 	);
 };
 
-export default pageContacts;
+export default ContactsPage;

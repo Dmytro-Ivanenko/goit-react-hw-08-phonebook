@@ -7,7 +7,7 @@ import { getUser } from '../../../redux/selectors';
 // import styles from './navbar-user.module.scss';
 
 const NavbarUser = () => {
-	const { name } = useSelector(getUser);
+	const { email } = useSelector(getUser);
 	const dispatch = useDispatch();
 
 	const onLogout = () => {
@@ -16,7 +16,8 @@ const NavbarUser = () => {
 
 	return (
 		<div>
-			{name}, <button onClick={onLogout}>Logout</button>
+			<p>{email}</p>
+			<button onClick={onLogout}>Logout</button>
 		</div>
 	);
 };
