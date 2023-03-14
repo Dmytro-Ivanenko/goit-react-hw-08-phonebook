@@ -38,7 +38,7 @@ export const logout = createAsyncThunk(
 );
 
 export const getCurrent = createAsyncThunk(
-	'auth/delete',
+	'auth/getCurrent',
 	async (token, { rejectWithValue }) => {
 		try {
 			const response = await Api.getCurrent(token);

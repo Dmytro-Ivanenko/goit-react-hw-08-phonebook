@@ -1,40 +1,52 @@
 import React from 'react';
 import { Formik, Field, Form } from 'formik';
+import { useDispatch } from 'react-redux';
+import { signup } from '../../redux/operations/authOperations';
 
-const RegisterForm = () => (
-	<div>
-		<h1>Sign Up</h1>
-		<Formik
-			initialValues={{
-				name: '',
-				email: '',
-				password: '',
-			}}
-		>
-			<Form>
-				<label htmlFor="firstName">Name</label>
-				<Field id="name" name="name" placeholder="Name" />
+const RegisterForm = () => {
+	const dispatch = useDispatch();
 
-				<label htmlFor="email">Email</label>
-				<Field
-					id="email"
-					name="email"
-					placeholder="jane@acme.com"
-					type="email"
-				/>
+	const handleSubmit = (data) => {
+		dispatch(signup(data));
+	};
 
-				<label htmlFor="password">Name</label>
-				<Field
-					id="password"
-					name="password"
-					placeholder="Password"
-					type="password"
-				/>
+	return (
+		<div>
+			<Formik
+				initialValues={{
+					name: '',
+					email: '',
+					password: '',
+				}}
+				onSubmit={handleSubmit}
+			>
+				<Form>
+					<label htmlFor="firstName">Name</label>
+					<Field id="name" name="name" placeholder="Name" />
 
-				<button type="submit">Submit</button>
-			</Form>
-		</Formik>
-	</div>
-);
+					<label htmlFor="email">Email</label>
+					<Field
+						id="email"
+						name="email"
+						placeholder="jane@acme.com"
+						type="email"
+						required
+					/>
+
+					<label htmlFor="password">Name</label>
+					<Field
+						id="password"
+						name="password"
+						placeholder="Password"
+						type="password"
+						required
+					/>
+
+					<button type="submit">Submit</button>
+				</Form>
+			</Formik>
+		</div>
+	);
+};
 
 export default RegisterForm;

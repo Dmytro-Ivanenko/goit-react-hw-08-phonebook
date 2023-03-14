@@ -4,11 +4,9 @@ import { PersistGate } from 'redux-persist/integration/react';
 
 import AuthLayout from './components/AuthLayout/AuthLayout';
 import Navbar from './components/Navbar/Navbar';
-// import UserRoutes from './UserRoutes';
+import UserRoutes from './UserRoutes';
 
 import { persistor } from './redux/store';
-
-import './App.css';
 
 function App() {
 	return (
