@@ -35,7 +35,6 @@ export const getCurrent = async (token) => {
 	try {
 		setToken(token);
 		const { data } = await instance.get('/users/current');
-		console.log(data);
 		return data;
 	} catch (error) {
 		setToken();
