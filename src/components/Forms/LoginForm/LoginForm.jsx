@@ -1,29 +1,26 @@
 import React from 'react';
 import { Formik, Field, Form } from 'formik';
 import { useDispatch } from 'react-redux';
-import { signup } from '../../redux/operations/authOperations';
+import { login } from '../../../redux/operations/authOperations';
 
-const RegisterForm = () => {
+const LoginForm = () => {
 	const dispatch = useDispatch();
 
-	const handleSubmit = (data) => {
-		dispatch(signup(data));
+	const handleSubmit = (data, { resetForm }) => {
+		dispatch(login(data));
+		resetForm();
 	};
 
 	return (
 		<div>
 			<Formik
 				initialValues={{
-					name: '',
 					email: '',
 					password: '',
 				}}
 				onSubmit={handleSubmit}
 			>
 				<Form>
-					<label htmlFor="firstName">Name</label>
-					<Field id="name" name="name" placeholder="Name" />
-
 					<label htmlFor="email">Email</label>
 					<Field
 						id="email"
@@ -49,4 +46,4 @@ const RegisterForm = () => {
 	);
 };
 
-export default RegisterForm;
+export default LoginForm;

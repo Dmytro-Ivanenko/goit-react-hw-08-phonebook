@@ -1,7 +1,10 @@
 import { createSelector } from '@reduxjs/toolkit';
 
 // Auth
-export const isUserLogin = ({ auth }) => auth.isLogin;
+export const getIsUserLogin = ({ auth }) => auth.isLogin;
+
+export const getIsAuthLoading = ({ auth }) => auth.isLoading;
+// export const getIsRefreshing = ({ auth }) => auth.isRefreshing;
 
 export const getAuth = ({ auth }) => {
 	const { isLogin, token } = auth;

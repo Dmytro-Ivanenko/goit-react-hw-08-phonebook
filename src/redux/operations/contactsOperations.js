@@ -2,7 +2,7 @@ import {
 	getAllContacts,
 	addContact,
 	deleteContact,
-} from '../../services/phoneBookAPI';
+} from '../../srevices/phoneBookAPI';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 export const fetchContacts = createAsyncThunk(

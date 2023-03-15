@@ -1,8 +1,8 @@
-import * as Api from '../../services/phoneBookAPI';
+import * as Api from '../../srevices/phoneBookAPI';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 export const signup = createAsyncThunk(
-	'auth/signUp',
+	'auth/signup',
 	async (profileData, { rejectWithValue }) => {
 		try {
 			const response = await Api.signUp(profileData);

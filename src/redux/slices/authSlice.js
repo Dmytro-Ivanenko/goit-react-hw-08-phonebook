@@ -9,10 +9,11 @@ import {
 // handlers
 const handlePending = (state) => {
 	state.isLoading = true;
+	state.error = null;
 };
-const handleRejected = (state, action) => {
+const handleRejected = (state, { payload }) => {
 	state.isLoading = false;
-	state.error = action.payload;
+	state.error = payload;
 };
 const handleUser = (state, { payload }) => {
 	const { user, token } = payload;
@@ -25,9 +26,9 @@ const handleUser = (state, { payload }) => {
 
 // Slice
 const authSlice = createSlice({
-	name: 'contacts',
+	name: 'auth',
 	initialState: {
-		user: {},
+		user: { name: '', email: '' },
 		token: '',
 		isLogin: false,
 		isLoading: false,
@@ -56,12 +57,21 @@ const authSlice = createSlice({
 			.addCase(logout.rejected, handleRejected)
 
 			// get current user
-			.addCase(getCurrent.pending, handlePending)
-			.addCase(getCurrent.fulfilled, handleUser)
+			.addCase(getCurrent.pending, (state) => {
+				state.isLoading = true;
+				state.isRefreshing = true;
+			})
+			.addCase(getCurrent.fulfilled, (state, { payload }) => {
+				state.user = payload;
+				state.isLogin = true;
+				state.isLoading = false;
+				state.isRefreshing = false;
+			})
 			.addCase(getCurrent.rejected, (state, { payload }) => {
 				state.isLoading = false;
 				state.token = '';
 				state.error = payload;
+				state.isRefreshing = false;
 			});
 	},
 });
