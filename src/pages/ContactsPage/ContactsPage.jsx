@@ -1,7 +1,5 @@
-// import React, { useEffect } from 'react';
-// import { useSelector, useDispatch } from 'react-redux';
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
 import Section from '../../components/Section/Section';
 import ContactForm from '../../components/ContactForm/ContactForm';
@@ -9,17 +7,16 @@ import ContactList from '../../components/ContactList/ContactList';
 import Filter from '../../components/Filter/Filter';
 import Notification from '../../components/Notification/Notification';
 
-// import { fetchContacts } from '../../redux/operations/contactsOperations';
+import { fetchContacts } from '../../redux/operations/contactsOperations';
 import { getContacts } from '../../redux/selectors';
 
 const ContactsPage = () => {
-	// const dispatch = useDispatch();
+	const dispatch = useDispatch();
 	const contacts = useSelector(getContacts);
-	console.log(contacts);
 
-	// useEffect(() => {
-	// 	dispatch(fetchContacts());
-	// }, [dispatch]);
+	useEffect(() => {
+		dispatch(fetchContacts());
+	}, []);
 
 	return (
 		<>

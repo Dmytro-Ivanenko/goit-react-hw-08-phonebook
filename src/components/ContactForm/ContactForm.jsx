@@ -36,11 +36,11 @@ const ContactForm = () => {
 			return;
 		}
 
-		// add new contact into store
+		// add new contact into database
 		dispatch(
 			postContacts({
 				name: inpName.toLowerCase(),
-				phone: inpNumber,
+				number: inpNumber,
 			})
 		);
 		evn.target.reset();

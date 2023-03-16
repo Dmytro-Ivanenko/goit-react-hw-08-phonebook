@@ -49,11 +49,11 @@ export const getAllContacts = async () => {
 };
 
 export const addContact = async (contact) => {
-	const { data: result } = await instance.post('/contacts', contact); // name, number
-	return result;
+	const { data } = await instance.post('/contacts', contact); // name, number
+	return data;
 };
 
 export const deleteContact = async (id) => {
-	const { data } = await instance.delete(`/${id}`);
+	const { data } = await instance.delete(`/contacts/${id}`);
 	return data;
 };
