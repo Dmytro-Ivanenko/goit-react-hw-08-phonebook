@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getContacts } from '../../redux/selectors';
-import { postContacts } from '../../redux/operations/contactsOperations';
+import { getContacts } from '../../../redux/selectors';
+import { postContacts } from '../../../redux/operations/contactsOperations';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
-import Button from '../Button/Button';
+import Button from '../../Button/Button';
 import styles from './contactForm.module.scss';
 
 const ContactForm = () => {

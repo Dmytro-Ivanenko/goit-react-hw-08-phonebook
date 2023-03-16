@@ -1,5 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import Button from '@mui/material/Button';
+
 import { logout } from '../../../redux/operations/authOperations';
 
 import { getUser } from '../../../redux/selectors';
@@ -17,7 +19,9 @@ const NavbarUser = () => {
 	return (
 		<div className={styles.navBarUser}>
 			<p className={styles.email}>{email}</p>
-			<button onClick={onLogout}>Logout</button>
+			<Button variant="outlined" onClick={onLogout}>
+				Logout
+			</Button>
 		</div>
 	);
 };

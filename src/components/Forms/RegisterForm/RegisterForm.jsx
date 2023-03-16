@@ -1,7 +1,10 @@
 import React from 'react';
 import { Formik, Field, Form } from 'formik';
 import { useDispatch } from 'react-redux';
+import Button from '@mui/material/Button';
+
 import { signup } from '../../../redux/operations/authOperations';
+import styles from './RegisterForm.module.scss';
 
 const RegisterForm = () => {
 	const dispatch = useDispatch();
@@ -21,12 +24,22 @@ const RegisterForm = () => {
 				}}
 				onSubmit={handleSubmit}
 			>
-				<Form>
-					<label htmlFor="firstName">Name</label>
-					<Field id="name" name="name" placeholder="Name" />
-
-					<label htmlFor="email">Email</label>
+				<Form className={styles.formContainer}>
+					<label className={styles.formLabel} htmlFor="firstName">
+						Name
+					</label>
 					<Field
+						className={styles.formInput}
+						id="name"
+						name="name"
+						placeholder="Name"
+					/>
+
+					<label className={styles.formLabel} htmlFor="email">
+						Email
+					</label>
+					<Field
+						className={styles.formInput}
 						id="email"
 						name="email"
 						placeholder="jane@acme.com"
@@ -34,8 +47,11 @@ const RegisterForm = () => {
 						required
 					/>
 
-					<label htmlFor="password">Name</label>
+					<label className={styles.formLabel} htmlFor="password">
+						Password
+					</label>
 					<Field
+						className={styles.formInput}
 						id="password"
 						name="password"
 						placeholder="Password"
@@ -43,7 +59,9 @@ const RegisterForm = () => {
 						required
 					/>
 
-					<button type="submit">Submit</button>
+					<Button className={styles.button} type="submit" variant="outlined">
+						Submit
+					</Button>
 				</Form>
 			</Formik>
 		</div>
