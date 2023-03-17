@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { BrowserRouter } from 'react-router-dom';
 import { PersistGate } from 'redux-persist/integration/react';
 import { ThemeProvider } from '@mui/material/styles';
 
@@ -20,12 +19,10 @@ function App() {
 
 	return (
 		<PersistGate loading={null} persistor={persistor}>
-			<BrowserRouter>
-				<ThemeProvider theme={theme}>
-					<Navbar />
-					<UserRoutes />
-				</ThemeProvider>
-			</BrowserRouter>
+			<ThemeProvider theme={theme}>
+				<Navbar />
+				<UserRoutes />
+			</ThemeProvider>
 		</PersistGate>
 	);
 }
