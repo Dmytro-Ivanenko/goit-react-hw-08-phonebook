@@ -9,15 +9,17 @@ const Filter = () => {
 	const dispatch = useDispatch();
 
 	return (
-		<label className={styles.label}>
-			Find contacts by name
-			<input
-				className={styles.input}
-				type="text"
-				value={filter}
-				onChange={({ target }) => dispatch(setFilter(target.value))}
-			/>
-		</label>
+		<div className={styles.filterContainer}>
+			<label className={styles.label}>
+				Find contacts by name
+				<input
+					className={styles.input}
+					type="text"
+					value={filter}
+					onChange={({ target }) => dispatch(setFilter(target.value))}
+				/>
+			</label>
+		</div>
 	);
 };
 

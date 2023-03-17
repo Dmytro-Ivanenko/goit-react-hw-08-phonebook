@@ -1,16 +1,31 @@
-.li {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+.table {
+	border-collapse: collapse;
+	width: 100%;
+	margin: 0 auto;
+	margin-top: 20px;
+	border-radius: 5px;
+}
 
-	gap: 20px;
+.tr {
+	box-shadow: 0 2px 6px rgba(145, 145, 145, 0.3);
+	border-radius: 5px;
+	height: 40px;
+}
+.th {
+	padding: 20px;
+	font-size: 16px;
+}
 
-	text-transform: capitalize;
+.td {
+	padding: 10px;
+	font-size: 16px;
+	text-align: left;
 }
 
 .name {
-	width: 150px;
+	width: 30%;
 }
+
 .number {
-	width: 200px;
+	width: 30%;
 }

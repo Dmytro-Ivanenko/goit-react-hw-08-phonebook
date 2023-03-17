@@ -1,5 +1,4 @@
 import React from 'react';
-// import { useDispatch } from 'react-redux';
 import { lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { RotatingLines } from 'react-loader-spinner';

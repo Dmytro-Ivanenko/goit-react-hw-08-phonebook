@@ -20,11 +20,11 @@ const ContactsPage = () => {
 
 	return (
 		<>
-			<Section title="Phonebook">
+			<Section title="Add new contact">
 				<ContactForm />
 			</Section>
 
-			<Section title="Contacts">
+			<Section title="Contact list">
 				{contacts?.length > 0 ? (
 					<>
 						<Filter />

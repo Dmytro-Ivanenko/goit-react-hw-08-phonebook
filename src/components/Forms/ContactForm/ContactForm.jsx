@@ -4,7 +4,7 @@ import { getContacts } from '../../../redux/selectors';
 import { postContacts } from '../../../redux/operations/contactsOperations';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
-import Button from '../../Button/Button';
+import Button from '@mui/material/Button';
 import styles from './contactForm.module.scss';
 
 const ContactForm = () => {
@@ -74,7 +74,9 @@ const ContactForm = () => {
 				required
 			/>
 
-			<Button type="submit">Add contact</Button>
+			<Button type="submit" className={styles.button} variant="outlined">
+				Add contact
+			</Button>
 		</form>
 	);
 };

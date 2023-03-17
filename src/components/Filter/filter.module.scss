@@ -1,9 +1,28 @@
+.filterContainer {
+	display: flex;
+	justify-content: start;
+}
+
 .label {
-  display: block;
-  margin-bottom: 20px;
+	font-size: 16px;
+	font-weight: bold;
+	text-align: start;
 }
 
 .input {
-  margin-left: 20px;
-  border-radius: 5px;
+	padding: 10px;
+	border: 1px solid #ccc;
+	background-color: transparent;
+	color: #fff;
+
+	border-radius: 5px;
+	margin-left: 20px;
+	width: 300px;
+	box-sizing: border-box;
+
+	&:focus {
+		outline: none;
+		border-color: #0e8388;
+		box-shadow: 0 0 5px #0e8388;
+	}
 }
