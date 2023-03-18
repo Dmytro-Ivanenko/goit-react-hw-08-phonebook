@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { Formik, Field, Form } from 'formik';
 import { useSelector, useDispatch } from 'react-redux';
 import { getContacts } from '../../../redux/selectors';
 import { postContacts } from '../../../redux/operations/contactsOperations';
@@ -8,25 +9,12 @@ import Button from '@mui/material/Button';
 import styles from './contactForm.module.scss';
 
 const ContactForm = () => {
-	const [state, setState] = useState({
-		name: '',
-		number: '',
-	});
-
 	const contacts = useSelector(getContacts);
 	const dispatch = useDispatch();
 
-	// Inputs
-	const onChangeInput = ({ target }) => {
-		setState((prevState) => {
-			return { ...prevState, [target.name]: target.value };
-		});
-	};
-
 	// Submit
-	const handleSubmitForm = (evn) => {
-		evn.preventDefault();
-		const { name: inpName, number: inpNumber } = state;
+	const handleSubmitForm = (values, { resetForm }) => {
+		const { name: inpName, number: inpNumber } = values;
 
 		// name check
 		if (
@@ -39,45 +27,49 @@ const ContactForm = () => {
 		// add new contact into database
 		dispatch(
 			postContacts({
-				name: inpName.toLowerCase(),
+				name: inpName,
 				number: inpNumber,
 			})
 		);
-		evn.target.reset();
+		resetForm();
 	};
 
 	return (
-		<form className={styles.form} onSubmit={handleSubmitForm}>
-			<label className={styles.label} htmlFor="name">
-				Name
-			</label>
-			<input
-				className={styles.input}
-				type="text"
-				name="name"
-				pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-				title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-				onChange={onChangeInput}
-				required
-			/>
+		<Formik
+			initialValues={{
+				name: '',
+				number: '',
+			}}
+			onSubmit={handleSubmitForm}
+		>
+			<Form className={styles.form}>
+				<label className={styles.label} htmlFor="name">
+					Name
+				</label>
+				<Field
+					className={styles.input}
+					id="name"
+					type="text"
+					name="name"
+					required
+				/>
 
-			<label className={styles.label} htmlFor="number">
-				Number
-			</label>
-			<input
-				className={styles.input}
-				type="tel"
-				name="number"
-				pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-				title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-				onChange={onChangeInput}
-				required
-			/>
+				<label className={styles.label} htmlFor="number">
+					Number
+				</label>
+				<Field
+					className={styles.input}
+					id="number"
+					type="tel"
+					name="number"
+					required
+				/>
 
-			<Button type="submit" className={styles.button} variant="outlined">
-				Add contact
-			</Button>
-		</form>
+				<Button type="submit" className={styles.button} variant="outlined">
+					Add contact
+				</Button>
+			</Form>
+		</Formik>
 	);
 };
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { RotatingLines } from 'react-loader-spinner';
+import Loader from './components/Loader/Loader';
 
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import PublicRoute from './components/PublicRoute/PublicRoute';
@@ -14,7 +14,7 @@ const NotFoundPage = lazy(() => import('./pages/NotFoundPage/NotFoundPage'));
 
 const UserRoutes = () => {
 	return (
-		<Suspense fallback={<RotatingLines />}>
+		<Suspense fallback={<Loader />}>
 			<Routes>
 				<Route path="/" element={<HomePage />} />
 				<Route element={<PublicRoute />}>

@@ -9,7 +9,7 @@ import { getUser } from '../../../redux/selectors';
 import styles from './NavBarUser.module.scss';
 
 const NavbarUser = () => {
-	const { email } = useSelector(getUser);
+	const { email, name } = useSelector(getUser);
 	const dispatch = useDispatch();
 
 	const onLogout = () => {
@@ -18,7 +18,9 @@ const NavbarUser = () => {
 
 	return (
 		<div className={styles.navBarUser}>
-			<p className={styles.email}>{email}</p>
+			<p
+				className={styles.email}
+			>{`Hello, ${name}. Your  email is ${email}`}</p>
 			<Button variant="outlined" onClick={onLogout}>
 				Logout
 			</Button>

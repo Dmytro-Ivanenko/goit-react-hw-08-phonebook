@@ -14,44 +14,42 @@ const LoginForm = () => {
 	};
 
 	return (
-		<div>
-			<Formik
-				initialValues={{
-					email: '',
-					password: '',
-				}}
-				onSubmit={handleSubmit}
-			>
-				<Form className={styles.formContainer}>
-					<label htmlFor="email" className={styles.formLabel}>
-						Email
-					</label>
-					<Field
-						className={styles.formInput}
-						id="email"
-						name="email"
-						placeholder="jane@acme.com"
-						type="email"
-						required
-					/>
+		<Formik
+			initialValues={{
+				email: '',
+				password: '',
+			}}
+			onSubmit={handleSubmit}
+		>
+			<Form className={styles.formContainer}>
+				<label htmlFor="email" className={styles.formLabel}>
+					Email
+				</label>
+				<Field
+					className={styles.formInput}
+					id="email"
+					name="email"
+					placeholder="jane@acme.com"
+					type="email"
+					required
+				/>
 
-					<label htmlFor="password" className={styles.formLabel}>
-						Password
-					</label>
-					<Field
-						className={styles.formInput}
-						id="password"
-						name="password"
-						placeholder="Password"
-						type="password"
-						required
-					/>
-					<Button className={styles.button} type="submit" variant="outlined">
-						Submit
-					</Button>
-				</Form>
-			</Formik>
-		</div>
+				<label htmlFor="password" className={styles.formLabel}>
+					Password
+				</label>
+				<Field
+					className={styles.formInput}
+					id="password"
+					name="password"
+					placeholder="Password"
+					type="password"
+					required
+				/>
+				<Button className={styles.button} type="submit" variant="outlined">
+					Submit
+				</Button>
+			</Form>
+		</Formik>
 	);
 };
 
